@@ -4,13 +4,18 @@ class Entry
     public string _answer { get; set; }
     public string _date { get; set; }
 
+    public static void Display(Entry entry)
+    {
+            Console.WriteLine($"Date: {entry?._date} - Prompt: {entry?._prompt}");
+            Console.WriteLine(entry?._answer);
+            Console.WriteLine();
+    }
+
     public static void Display(List<Entry> entries)
     {
         foreach (Entry entry in entries)
         {
-            Console.WriteLine($"Date: {entry?._date} - Prompt: {entry?._prompt}");
-            Console.WriteLine(entry?._answer);
-            Console.WriteLine();
+            Display(entry);
         }
     }
 
