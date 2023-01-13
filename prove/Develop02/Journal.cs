@@ -1,7 +1,10 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 class Journal
 {
-    public List<Entry> _entries = new List<Entry>();
-    public string _file;
+    public List<Entry> _entries {get; set; } = new List<Entry>();
+    public string _file { get; set;}
 
     public void Write()
     {
@@ -16,38 +19,40 @@ class Journal
         string dateText = theCurrentTime.ToShortDateString();
         newEntry._date = dateText;
 
-        _entries.Add(newEntry);
+        var entry = new Entry
+            {
+                _date = newEntry._date,
+                _prompt = newEntry._prompt,
+                _answer = newEntry._answer
+            };
+        
+        _entries.Add(entry);
 
     }
 
     public void Display()
     {
+        Console.WriteLine("Showing Journal content:");
         foreach (Entry entry in _entries)
         {
-            Console.WriteLine(entry._date);
-            Console.WriteLine(entry._prompt);
-            Console.WriteLine(entry._answer);
+            Console.WriteLine($"Date: {entry?._date} - Prompt: {entry?._prompt}");
+            Console.WriteLine(entry?._answer);
             Console.WriteLine();
         }
     }
 
-    public void SaveToFile()
+    public void SaveToFile(/*string fileName*/)
     {
-        string fileName = "myFile.txt";
-
-        using (StreamWriter outputFile = new StreamWriter(fileName))
-        {
-            foreach (Entry  entry in _entries)
-            {
-                outputFile.WriteLine(entry._date);
-                outputFile.WriteLine(entry._prompt);
-                outputFile.WriteLine(entry._answer);
-            }
-        }
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string jsonString = JsonSerializer.Serialize<List<Entry>>(_entries, options);
+        File.WriteAllText(_file, jsonString);
     }
 
-    public void LoadFromFile()
+    public void LoadFromFile(/*string fileName*/)
     {
+
+        string jsonString = File.ReadAllText(_file);
+        _entries = JsonSerializer.Deserialize<List<Entry>>(jsonString)!;
 
     }
 }
