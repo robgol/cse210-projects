@@ -1,6 +1,6 @@
 class Prompt
 {
-    public List<string> _prompts = new List<string>();
+    public List<string> _prompts  {get; set; } = new List<string>();
     private static string _file = "prompts.txt";
 
     public static string Random()
@@ -31,8 +31,8 @@ class Prompt
 
     public void LoadFromFile()
     {
-        string filename = _file;
-        string[] prompts = System.IO.File.ReadAllLines(filename);
+        string fileName = _file;
+        string[] prompts = System.IO.File.ReadAllLines(fileName);
 
         foreach (string prompt in prompts)
         {
