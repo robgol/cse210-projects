@@ -23,6 +23,7 @@ class Journal
     {
         Console.WriteLine("Showing Journal content:");
         Entry.Display(_entries);
+        
     }
 
     public void SaveToFile()
