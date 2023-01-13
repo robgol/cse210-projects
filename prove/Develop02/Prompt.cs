@@ -16,7 +16,7 @@ class Prompt
 
     public void Write()
     {
-
+        
     }
     
     public void Delete()

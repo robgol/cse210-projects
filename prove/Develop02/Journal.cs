@@ -11,37 +11,18 @@ class Journal
     */
     public void Write()
     {
-        
-        Entry newEntry = new Entry();
-        newEntry._prompt = Prompt.Random();
-
-        Console.Write($"{newEntry._prompt} ");
-        newEntry._answer = Console.ReadLine();
-        
-        DateTime theCurrentTime = DateTime.Now;
-        string dateText = theCurrentTime.ToShortDateString();
-        newEntry._date = dateText;
-
-        var entry = new Entry
-            {
-                _date = newEntry._date,
-                _prompt = newEntry._prompt,
-                _answer = newEntry._answer
-            };
-        
-        _entries.Add(entry);
-
+        var newEntry = Entry.Write();
+        _entries.Add(newEntry);
     }
 
+    /*
+        Display the journal content. the content is a List of Entry, so print them to the terminal is done at Entry class,
+        using the static void method Display, called on Entry.Display and using _entries attribut as parameter
+    */
     public void Display()
     {
         Console.WriteLine("Showing Journal content:");
-        foreach (Entry entry in _entries)
-        {
-            Console.WriteLine($"Date: {entry?._date} - Prompt: {entry?._prompt}");
-            Console.WriteLine(entry?._answer);
-            Console.WriteLine();
-        }
+        Entry.Display(_entries);
     }
 
     public void SaveToFile()
@@ -53,9 +34,7 @@ class Journal
 
     public void LoadFromFile()
     {
-
         string jsonString = File.ReadAllText(_file);
         _entries = JsonSerializer.Deserialize<List<Entry>>(jsonString)!;
-
     }
 }

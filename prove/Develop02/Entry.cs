@@ -4,10 +4,37 @@ class Entry
     public string _answer { get; set; }
     public string _date { get; set; }
 
-    public void Display()
+    public static void Display(List<Entry> entries)
     {
-        Console.WriteLine($"{_date}");
-        Console.WriteLine($"{_prompt}");
-        Console.WriteLine($"{_answer}");
+        foreach (Entry entry in entries)
+        {
+            Console.WriteLine($"Date: {entry?._date} - Prompt: {entry?._prompt}");
+            Console.WriteLine(entry?._answer);
+            Console.WriteLine();
+        }
+
+    }
+
+    public static Entry Write()
+    {
+        Entry newEntry = new Entry();
+        newEntry._prompt = Prompt.Random();
+
+        Console.Write($"{newEntry._prompt} ");
+        newEntry._answer = Console.ReadLine();
+        
+        DateTime theCurrentTime = DateTime.Now;
+        string dateText = theCurrentTime.ToShortDateString();
+        newEntry._date = dateText;
+
+        var entry = new Entry
+            {
+                _date = newEntry._date,
+                _prompt = newEntry._prompt,
+                _answer = newEntry._answer
+            };
+
+        return entry;
+
     }
 }
