@@ -6,6 +6,9 @@ class Journal
     public List<Entry> _entries {get; set; } = new List<Entry>();
     public string _file { get; set;}
 
+    /*
+        Write an entry in the journal
+    */
     public void Write()
     {
         
@@ -41,14 +44,14 @@ class Journal
         }
     }
 
-    public void SaveToFile(/*string fileName*/)
+    public void SaveToFile()
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string jsonString = JsonSerializer.Serialize<List<Entry>>(_entries, options);
         File.WriteAllText(_file, jsonString);
     }
 
-    public void LoadFromFile(/*string fileName*/)
+    public void LoadFromFile()
     {
 
         string jsonString = File.ReadAllText(_file);
