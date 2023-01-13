@@ -1,5 +1,4 @@
 using System;
-
 class Program
 {
     static void Main(string[] args)
@@ -9,7 +8,7 @@ class Program
 
         do
         {
-            DisplayMenu();
+            Helper.DisplayMenu();
             Console.Write("What do you want to do? ");
             userMenuChoice = Convert.ToInt32(Console.ReadLine());
 
@@ -42,19 +41,6 @@ class Program
                 Console.WriteLine("See you!");
                 break;
             }            
-            
         } while (true);
-
     }
-
-
-    public static void DisplayMenu()
-    {
-        string[] menuList = {"1. Write", "2. Display", "3. Load", "4. Save", "5. Quit"};
-        foreach (string menu in menuList)
-        {
-            Console.WriteLine(menu);
-        }
-    }
-
 }

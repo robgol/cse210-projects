@@ -12,29 +12,23 @@ class Entry
             Console.WriteLine(entry?._answer);
             Console.WriteLine();
         }
-
     }
 
     public static Entry Write()
     {
         Entry newEntry = new Entry();
+        
         newEntry._prompt = Prompt.Random();
-
         Console.Write($"{newEntry._prompt} ");
         newEntry._answer = Console.ReadLine();
-        
-        DateTime theCurrentTime = DateTime.Now;
-        string dateText = theCurrentTime.ToShortDateString();
-        newEntry._date = dateText;
 
         var entry = new Entry
             {
-                _date = newEntry._date,
+                _date = Helper.GetTodayDate(),
                 _prompt = newEntry._prompt,
                 _answer = newEntry._answer
             };
 
         return entry;
-
     }
 }
