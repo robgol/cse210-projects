@@ -3,7 +3,10 @@ class Fraction
     private int _top;
     private int _bottom = 1;
 
-    public Fraction(){}
+    public Fraction(){
+        SetTop(1);
+        SetBottom(1);
+    }
 
     public Fraction(int wholeNumber)
     {
@@ -38,7 +41,7 @@ class Fraction
 
     public string GetFractionString()
     {
-        return _top + "/" + _bottom;
+        return $"{_top}/{_bottom}";
     }
 
     public double GertDecimalValue()
