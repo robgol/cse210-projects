@@ -49,6 +49,5 @@ class ReflectionActivity: Activity
 
         Console.WriteLine();
 
-
     }
 }
