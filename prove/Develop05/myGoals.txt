@@ -1,0 +1,5 @@
+830
+SimpleGoal:Run a marathon,Run and complete a marathon in 4 hours,100,True
+EthernalGoal:Read Scriptures,Read at least two verses,30
+CheckListGoal:Visit ward members,Visit member with missionaries,50,150,3,2
+CheckListGoal:Expend time on family,Go to the Nature once a month with my family,300,500,5,2
