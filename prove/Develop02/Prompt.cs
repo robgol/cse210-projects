@@ -1,7 +1,9 @@
 class Prompt
 {
     public List<string> _prompts  {get; set; } = new List<string>();
+
     private static string _file = "prompts.txt";
+
 
     public static string Random()
     {

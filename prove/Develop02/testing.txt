@@ -1,0 +1,12 @@
+[
+  {
+    "_prompt": "What is something I\u0027m grateful for today?",
+    "_answer": "Read scriptures",
+    "_date": "08/02/2023"
+  },
+  {
+    "_prompt": "What did I learn today?",
+    "_answer": "Stay at home",
+    "_date": "08/02/2023"
+  }
+]
