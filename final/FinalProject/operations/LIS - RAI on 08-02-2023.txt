@@ -1,0 +1,3 @@
+CargoFlight,LIS - rai on 08-02-2023,08-02-2023,12345
+VR-001,LIS,rai
+D4-CBX,boeing,777 - DreamLiner,480

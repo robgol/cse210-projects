@@ -1,0 +1,3 @@
+FerryFlight,LIS - RAI on 01-01-2023,01-01-2023,Transport Aircraft back to main base.
+VR-001,LIS,RAI
+D4-CCB, Airbus,A330-neo,250

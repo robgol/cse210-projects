@@ -1,0 +1,3 @@
+CargoFlight,LIS - rai on 09-02-2023,09-02-2023,180
+VR-001,LIS,RAI
+D4-BFA, Embraer,E2,190

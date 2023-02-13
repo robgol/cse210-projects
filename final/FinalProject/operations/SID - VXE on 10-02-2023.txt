@@ -1,0 +1,3 @@
+PassengerFlight,SID - VXE on 10-02-2023,10-02-2023,180
+VR-103,SID,VXE
+D4-CCB, Airbus,A330-neo,250

@@ -1,18 +1,18 @@
 class FerryFlight: Operation
 {
     private string _purpose;
-    FerryFlight():base()
+    public FerryFlight():base()
     {
         SetPurpose();
     }
-    FerryFlight(int operationID):base(operationID)
+    public FerryFlight(string operationID):base(operationID)
     {
 
     }
-    FerryFlight(int operationID, string type, Flight flight, Aircraft aircraft, string date, string purpose)
+    public FerryFlight(string operationID, string type, Flight flight, Aircraft aircraft, string date, string purpose)
     :base(operationID, type, flight, aircraft, date)
     {
-
+        _purpose = purpose;
     }
     private void SetPurpose()
     {
@@ -21,6 +21,24 @@ class FerryFlight: Operation
     }
     public override void Display()
     {
-        throw new NotImplementedException();
+        Console.Clear();
+        Console.WriteLine("Cargo Flight Information:");
+        Console.WriteLine("<----------------------------------->");
+        Console.WriteLine("Flight:");
+        Console.WriteLine($"\tFlight #: {_flight.GetFlightNumber()}");;
+        Console.WriteLine($"\tFrom: {_flight.GetDeptAirport()}");
+        Console.WriteLine($"\tTo: {_flight.GetArrivalAirport()}");
+        Console.WriteLine("-----------------------------------");
+        Console.WriteLine("Details:");
+        Console.WriteLine($"\tAircraft Reg: {_aircraft.GetRegMark()}");
+        Console.WriteLine($"\tDate: {_date}");
+        Console.WriteLine($"\tReason: {_purpose}");
+        Console.ReadLine();
     }
+
+    public override string ToString()
+    {
+        return $"{base.ToString()},{_operationID.ToString()},{_date},{_purpose}\n{_flight.ToString()}\n{_aircraft.ToString()}";
+    }
+
 }
